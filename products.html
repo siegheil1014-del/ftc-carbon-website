@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>產品規格數據庫 - 福懋興業</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+:root {
+    --bg-dark: #0b1120;
+    --bg-card: #151f32;
+    --bg-card-hover: #1e2c47;
+    --accent-cyan: #06b6d4;
+    --accent-blue: #3b82f6;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: #24324d;
+    --border-highlight: rgba(6, 182, 212, 0.4);
+    --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --font-main: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.carbon-pattern {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        linear-gradient(45deg, #10192d 25%, transparent 25%), 
+        linear-gradient(-45deg, #10192d 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #10192d 75%), 
+        linear-gradient(-45deg, transparent 75%, #10192d 75%);
+    background-size: 100% 100%, 16px 16px, 16px 16px, 16px 16px, 16px 16px;
+    background-position: 0 0, 0 0, 8px 0, 8px -8px, 0px 8px;
+}
+nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11, 17, 32, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+.nav-container {
+    max-width: 1200px; margin: 0 auto; display: flex;
+    justify-content: space-between; align-items: center; padding: 1rem 1.5rem;
+}
+.logo-box {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--text-primary);
+}
+.logo-icon {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: var(--gradient-accent); display: flex;
+    align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;
+    color: #fff; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+.logo-text h1 { font-size: 1.1rem; font-weight: 700; }
+.logo-text span { font-size: 0.72rem; color: var(--text-secondary); display: block; letter-spacing: 0.5px; }
+.nav-links { display: flex; list-style: none; gap: 1.8rem; align-items: center; }
+.nav-links a {
+    text-decoration: none; color: var(--text-secondary); font-size: 0.95rem;
+    font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-cyan); }
+.nav-btn {
+    background: var(--gradient-accent); color: #fff !important;
+    padding: 0.55rem 1.2rem; border-radius: 9999px; font-weight: 600;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); transition: transform 0.2s;
+}
+.nav-btn:hover { transform: translateY(-2px); }
+.main-content { flex: 1; margin-top: 80px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
+.page-header { text-align: center; margin-bottom: 3rem; }
+.page-tag {
+    color: var(--accent-cyan); font-weight: 700; text-transform: uppercase;
+    font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 0.5rem; display: block;
+}
+.page-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 1rem; }
+.page-subtitle { color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-size: 1rem; }
+footer {
+    border-top: 1px solid var(--border-color); background: #080c17;
+    padding: 2.5rem 1.5rem; margin-top: auto;
+}
+.footer-inner {
+    max-width: 1200px; margin: 0 auto; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-copy { color: var(--text-muted); font-size: 0.85rem; }
+
+        .catalog-box {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 2rem;
+        }
+        .tab-nav {
+            display: flex; gap: 0.8rem; border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.2rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: #0b1120; border: 1px solid var(--border-color);
+            color: var(--text-secondary); padding: 0.65rem 1.2rem; border-radius: 8px;
+            cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .tab-btn:hover { color: #fff; background: var(--bg-card-hover); }
+        .tab-btn.active { background: var(--accent-cyan); color: #0b1120; border-color: var(--accent-cyan); font-weight: 700; }
+        .search-box {
+            position: relative; margin-bottom: 1.5rem; max-width: 450px;
+        }
+        .search-box input {
+            width: 100%; background: #0b1120; border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem 0.75rem 2.5rem; border-radius: 8px; color: #fff;
+            outline: none; font-size: 0.92rem;
+        }
+        .search-box input:focus { border-color: var(--accent-cyan); }
+        .search-box i {
+            position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .table-responsive {
+            overflow-x: auto; border: 1px solid var(--border-color); border-radius: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+        thead { background: #0b1120; }
+        th { padding: 1rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); white-space: nowrap; }
+        td { padding: 0.9rem 1rem; border-bottom: 1px solid rgba(51, 65, 85, 0.4); white-space: nowrap; }
+        tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        .item-badge {
+            display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px;
+            font-weight: 600; background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);
+        }
+        .custom-note {
+            margin-top: 1.5rem; padding: 1rem 1.2rem; background: rgba(6, 182, 212, 0.05);
+            border-left: 3px solid var(--accent-cyan); font-size: 0.88rem; color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body class="carbon-pattern">
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">FTC</div>
+                <div class="logo-text">
+                    <h1>福懋興業 <span>FORMOSA TAFFETA</span></h1>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁 (Home)</a></li>
+                <li><a href="products.html" class="active">產品規格 (Products)</a></li>
+                <li><a href="contact.html">聯絡諮詢 (Contact)</a></li>
+                <li><a href="contact.html" class="nav-btn"><i class="fa-regular fa-envelope"></i> 索取樣品/報價</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">Specification Matrix</span>
+                <h2 class="page-title">全系列產品規格數據庫</h2>
+                <p class="page-subtitle">涵蓋 2D 梭織布、建築結構補強單向布、預浸布（Prepreg）與多軸向（Multiaxial）織物。</p>
+            </div>
+
+            <div class="catalog-box">
+                <!-- Tab Menu -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="switchCategory('2d', this)"><i class="fa-solid fa-table-cells"></i> 2D 梭織布 (2D Woven)</button>
+                    <button class="tab-btn" onclick="switchCategory('reinforce', this)"><i class="fa-solid fa-building"></i> 建築耐震單向布 (Civil UD)</button>
+                    <button class="tab-btn" onclick="switchCategory('prepreg', this)"><i class="fa-solid fa-fill-drip"></i> 預浸材料 (Prepreg)</button>
+                    <button class="tab-btn" onclick="switchCategory('multiaxial', this)"><i class="fa-solid fa-arrows-split-up-and-left"></i> 多軸向織物 (Multiaxial)</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="搜尋型號、紗支或織法 (例: EC2C, 3K, Twill, 12K)..." onkeyup="filterTable()">
+                </div>
+
+                <!-- Table Container -->
+                <div class="table-responsive">
+                    <table id="specTable">
+                        <thead id="specHead"></thead>
+                        <tbody id="specBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="custom-note">
+                    <i class="fa-solid fa-circle-info" style="color:var(--accent-cyan); margin-right:6px;"></i>
+                    <strong>客製化支援：</strong> 所有織物與預浸規格皆可依客戶需求進行客製化製作 (Specifications can be customized base on request)。
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <div class="logo-icon" style="width:30px; height:30px; font-size:0.85rem;">FTC</div>
+                <div>
+                    <div style="font-weight:700; font-size:0.9rem;">福懋興業股份有限公司 FORMOSA TAFFETA CO., LTD.</div>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">台塑關係企業 Formosa Plastics Group</div>
+                </div>
+            </div>
+            <div class="footer-copy">&copy; 2026 FTC. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        const productData = {
+            '2d': {
+                headers: ['產品編號 (Product NO.)', '經密 (Warp Ends)', '緯密 (Fill Picks)', '經紗 (Warp Yarn)', '緯紗 (Fill Yarn)', '組織 (Weave)', '幅寬 (Width cm)', '厚度 (Thickness mm)', '克重 (Weight g/m²)'],
+                rows: [
+                    ['EC2C', '18', '18', '1.5K carbon', '1.5K carbon', '1/1 Plain', '100', '0.19', '144.0'],
+                    ['EC2D', '18', '18', '1.5K carbon', '1.5K carbon', '2/2 Twill', '100', '0.19', '144.0'],
+                    ['EC01', '13', '13', '3K carbon', '1500D Kevlar (Y)', '1/1 Plain', '100', '0.27', '190.8'],
+                    ['EC05', '13', '13', '3K carbon', '1500D Kevlar (Y)', '2/2 Twill', '100', '0.28', '190.8'],
+                    ['EC3C', '12.5', '12.5', '3K carbon', '3K carbon', '1/1 Plain', '100', '0.24', '200.0'],
+                    ['EC3X', '13', '13', '3K carbon', '3K carbon', '2/2 Twill', '100', '0.25', '208.0'],
+                    ['ECTC02', '12.5', '12.5', '3K carbon', '3K carbon', '1/1 Plain', '100', '0.33', '200.0'],
+                    ['ECTD02', '12.5', '12.5', '3K carbon', '3K carbon', '2/2 Twill', '100', '0.33', '200.0'],
+                    ['EC3701', '12.5', '12.5', '3K carbon', '3K carbon', 'Diamond', '100', '0.28', '200.0'],
+                    ['EC3M', '13', '18', '3K carbon', '3K carbon', '2/2 Twill', '100', '0.30', '248.0'],
+                    ['ECCM', '6.25', '6.25', '12K carbon', '12K carbon', '1/1 Plain', '100', '0.52', '400.0'],
+                    ['ECCN', '6.25', '6.25', '12K carbon', '12K carbon', '2/2 Twill', '100', '0.575', '400.0'],
+                    ['ECCK', '9.375', '9.375', '12K carbon', '12K carbon', '1/1 Plain', '100', '0.65', '600.0'],
+                    ['ECCL', '9.375', '9.375', '12K carbon', '12K carbon', '2/2 Twill', '100', '0.70', '600.0'],
+                    ['ECCF', '6.5', '4.5', '12K carbon', '55tex glass', '1/1 Plain', '50', '0.28', '217.9'],
+                    ['ECCH', '9.5', '4.5', '12K carbon', '55tex glass', '1/1 Plain', '50', '0.38', '313.9']
+                ]
+            },
+            'reinforce': {
+                headers: ['單向織物 (Uni-directional)', '基重 (Area Weight g/m²)', '幅寬 (Width cm)', '原絲品名 (Carbon Fiber)', '包裝 (Packing m/roll)', '設計厚度 (Design Thickness cm)'],
+                rows: [
+                    ['ECCF', '200', '50', 'TC-36P-12K (Formosa)', '100', '0.0111'],
+                    ['ECCH', '300', '50', 'TC-36P-12K (Formosa)', '100', '0.0166']
+                ]
+            },
+            'prepreg': {
+                headers: ['產品型式 (Product)', '基重 (Weight g/m²)', '含膠量 (RC %)', '玻璃轉移溫度 (Tg °C)', '使用紗支 (Carbon Yarn)', '標準幅寬 (Width cm)'],
+                rows: [
+                    ['UD Prepreg', '75', '30 ~ 40 %', '120 ~ 250 °C', '12K', '100'],
+                    ['UD Prepreg', '100', '30 ~ 40 %', '120 ~ 250 °C', '12K', '100'],
+                    ['UD Prepreg', '125', '30 ~ 40 %', '120 ~ 250 °C', '12K', '100'],
+                    ['UD Prepreg', '150', '30 ~ 40 %', '120 ~ 250 °C', '12K', '100'],
+                    ['UD Prepreg', '200', '30 ~ 40 %', '120 ~ 250 °C', '12K / 24K', '100'],
+                    ['UD Prepreg', '250', '30 ~ 40 %', '120 ~ 250 °C', '24K', '100']
+                ]
+            },
+            'multiaxial': {
+                headers: ['產品型號 (Product No.)', '排紗角度 (Fiber Orientation)', '各層纖維克重 (Fiber Weight/Layer g/m²)', '總克重 (Total Weight g/m²)', '幅寬 (Width cm)', '每捲長度 (Roll Length m)'],
+                rows: [
+                    ['ECMT01', '+45° / -45°', '75', '157', '127', '50'],
+                    ['ECMT03', '+45° / 90° / -45°', '75', '232', '127', '50'],
+                    ['ECMT06', '+45° / -45°', '100', '207', '127', '50'],
+                    ['ECMT08', '+45° / 90° / -45°', '100', '307', '127', '50'],
+                    ['ECMT11', '+45° / -45°', '125', '257', '127', '50'],
+                    ['ECMT13', '+45° / 90° / -45°', '125', '382', '127', '50'],
+                    ['ECMT16', '+45° / -45°', '150', '307', '127', '50'],
+                    ['ECMT18', '+45° / 90° / -45°', '150', '457', '127', '50'],
+                    ['ECMT21', '+45° / -45°', '200', '407', '127', '50'],
+                    ['ECMT22', '0° / 90°', '200', '407', '127', '50'],
+                    ['ECMF23', '+45° / 90° / -45°', '200', '607', '127', '30'],
+                    ['ECMF24', '0° / +45° / -45°', '200', '607', '127', '30'],
+                    ['ECMF25', '0° / +45° / 90° / -45°', '200', '807', '127', '30'],
+                    ['ECMF36', '+45° / -45°', '300', '607', '127', '30'],
+                    ['ECMF38', '+45° / 90° / -45°', '300', '907', '127', '30']
+                ]
+            }
+        };
+
+        let currentCategory = '2d';
+
+        function renderTable(category) {
+            const data = productData[category];
+            const thead = document.getElementById('specHead');
+            const tbody = document.getElementById('specBody');
+
+            let ths = '<tr>';
+            data.headers.forEach(h => ths += `<th>${h}</th>`);
+            ths += '</tr>';
+            thead.innerHTML = ths;
+
+            let trs = '';
+            data.rows.forEach(r => {
+                trs += '<tr>';
+                r.forEach((c, idx) => {
+                    if (idx === 0) {
+                        trs += `<td><span class="item-badge">${c}</span></td>`;
+                    } else {
+                        trs += `<td>${c}</td>`;
+                    }
+                });
+                trs += '</tr>';
+            });
+            tbody.innerHTML = trs;
+            document.getElementById('searchInput').value = '';
+        }
+
+        function switchCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable(cat);
+        }
+
+        function filterTable() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#specBody tr');
+            rows.forEach(r => {
+                r.style.display = r.innerText.toLowerCase().includes(query) ? '' : 'none';
+            });
+        }
+
+        renderTable('2d');
+    </script>
+</body>
+</html>

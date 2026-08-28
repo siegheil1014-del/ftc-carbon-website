@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 & 樣品詢價 - 福懋興業</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+:root {
+    --bg-dark: #0b1120;
+    --bg-card: #151f32;
+    --bg-card-hover: #1e2c47;
+    --accent-cyan: #06b6d4;
+    --accent-blue: #3b82f6;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: #24324d;
+    --border-highlight: rgba(6, 182, 212, 0.4);
+    --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    --font-main: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.carbon-pattern {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        linear-gradient(45deg, #10192d 25%, transparent 25%), 
+        linear-gradient(-45deg, #10192d 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #10192d 75%), 
+        linear-gradient(-45deg, transparent 75%, #10192d 75%);
+    background-size: 100% 100%, 16px 16px, 16px 16px, 16px 16px, 16px 16px;
+    background-position: 0 0, 0 0, 8px 0, 8px -8px, 0px 8px;
+}
+nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11, 17, 32, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+.nav-container {
+    max-width: 1200px; margin: 0 auto; display: flex;
+    justify-content: space-between; align-items: center; padding: 1rem 1.5rem;
+}
+.logo-box {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--text-primary);
+}
+.logo-icon {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: var(--gradient-accent); display: flex;
+    align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem;
+    color: #fff; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+.logo-text h1 { font-size: 1.1rem; font-weight: 700; }
+.logo-text span { font-size: 0.72rem; color: var(--text-secondary); display: block; letter-spacing: 0.5px; }
+.nav-links { display: flex; list-style: none; gap: 1.8rem; align-items: center; }
+.nav-links a {
+    text-decoration: none; color: var(--text-secondary); font-size: 0.95rem;
+    font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-cyan); }
+.nav-btn {
+    background: var(--gradient-accent); color: #fff !important;
+    padding: 0.55rem 1.2rem; border-radius: 9999px; font-weight: 600;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); transition: transform 0.2s;
+}
+.nav-btn:hover { transform: translateY(-2px); }
+.main-content { flex: 1; margin-top: 80px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
+.page-header { text-align: center; margin-bottom: 3rem; }
+.page-tag {
+    color: var(--accent-cyan); font-weight: 700; text-transform: uppercase;
+    font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 0.5rem; display: block;
+}
+.page-title { font-size: 2.3rem; font-weight: 800; margin-bottom: 1rem; }
+.page-subtitle { color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-size: 1rem; }
+footer {
+    border-top: 1px solid var(--border-color); background: #080c17;
+    padding: 2.5rem 1.5rem; margin-top: auto;
+}
+.footer-inner {
+    max-width: 1200px; margin: 0 auto; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-copy { color: var(--text-muted); font-size: 0.85rem; }
+
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 20px; padding: 3rem;
+        }
+        .contact-card-info h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .contact-card-info p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; }
+        .info-row { display: flex; gap: 1rem; margin-bottom: 1.4rem; align-items: flex-start; }
+        .info-icon {
+            width: 40px; height: 40px; border-radius: 8px; background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan); display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; flex-shrink: 0;
+        }
+        .info-detail label { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .info-detail span { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem; }
+        .form-control {
+            width: 100%; padding: 0.75rem 1rem; background: #0b1120;
+            border: 1px solid var(--border-color); border-radius: 8px;
+            color: #fff; font-size: 0.92rem; outline: none;
+        }
+        .form-control:focus { border-color: var(--accent-cyan); }
+        .submit-btn {
+            width: 100%; background: var(--gradient-accent); color: #fff;
+            padding: 0.9rem; border: none; border-radius: 8px; font-weight: 700;
+            font-size: 1rem; cursor: pointer; transition: opacity 0.2s;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; padding: 2rem; } }
+    </style>
+</head>
+<body class="carbon-pattern">
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-icon">FTC</div>
+                <div class="logo-text">
+                    <h1>福懋興業 <span>FORMOSA TAFFETA</span></h1>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁 (Home)</a></li>
+                <li><a href="products.html">產品規格 (Products)</a></li>
+                <li><a href="contact.html" class="active">聯絡諮詢 (Contact)</a></li>
+                <li><a href="contact.html" class="nav-btn"><i class="fa-regular fa-envelope"></i> 索取樣品/報價</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <span class="page-tag">Get in Touch</span>
+                <h2 class="page-title">聯絡我們與需求諮詢</h2>
+                <p class="page-subtitle">歡迎洽詢產品規格、報價、索取樣品或客製化複材織造方案。</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card-info">
+                    <h3>總公司與廠區聯絡資訊</h3>
+                    <p>福懋興業複合材料事業團隊隨時竭誠為您服務，提供專業的技術支援與材料選型建議。</p>
+
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-detail">
+                            <label>總公司 / 廠址 (Headquarter / Plants)</label>
+                            <span>640 雲林縣斗六市石榴路 317 號<br>(317, Shu Liu Rd., Touliu 640, Taiwan)</span>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="info-detail">
+                            <label>聯絡電話 (TEL)</label>
+                            <span>+886-5-557-7296<br>+886-5-557-7464</span>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-fax"></i></div>
+                        <div class="info-detail">
+                            <label>傳真 (FAX)</label>
+                            <span>+886-5-557-7450</span>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="info-detail">
+                            <label>官方網址 (Website)</label>
+                            <span><a href="http://www.ftc.com.tw" target="_blank" style="color:var(--accent-cyan); text-decoration:none;">http://www.ftc.com.tw</a></span>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="info-detail">
+                            <label>電子郵件 (E-mail)</label>
+                            <span>u133874@ftc.com.tw<br>t772001@ftc.com.tw</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label>貴公司名稱 (Company Name) *</label>
+                            <input type="text" class="form-control" required placeholder="例：台塑複合材料開發部門">
+                        </div>
+                        <div class="form-group">
+                            <label>聯絡人姓名與職稱 (Contact Name) *</label>
+                            <input type="text" class="form-control" required placeholder="例：陳經理">
+                        </div>
+                        <div class="form-group">
+                            <label>電子信箱 (E-mail) *</label>
+                            <input type="email" class="form-control" required placeholder="name@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>諮詢產品類別 (Interested Product)</label>
+                            <select class="form-control">
+                                <option>2D 梭織碳纖布 (2D Woven Fabric)</option>
+                                <option>建築耐震補強單向布 (Civil UD Fabric)</option>
+                                <option>碳纖維預浸材料 (Prepreg)</option>
+                                <option>多軸向織物 (Multiaxial Fabric)</option>
+                                <option>客製化規格 / 其他特殊需求</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>需求描述與規格 (Inquiry Details)</label>
+                            <textarea class="form-control" rows="4" placeholder="請填寫預計應用領域、基重 (g/m²)、幅寬或預計訂購數量..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn"><i class="fa-regular fa-paper-plane" style="margin-right:6px;"></i> 送出詢價需求</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <div class="logo-icon" style="width:30px; height:30px; font-size:0.85rem;">FTC</div>
+                <div>
+                    <div style="font-weight:700; font-size:0.9rem;">福懋興業股份有限公司 FORMOSA TAFFETA CO., LTD.</div>
+                    <div style="font-size:0.78rem; color:var(--text-muted);">台塑關係企業 Formosa Plastics Group</div>
+                </div>
+            </div>
+            <div class="footer-copy">&copy; 2026 FTC. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('感謝您的諮詢！福懋業務團隊將儘速與您聯繫。');
+        }
+    </script>
+</body>
+</html>
