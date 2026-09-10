@@ -171,3 +171,53 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button{fon
 @media(max-width:420px){
   .site-header .brand img{max-width:190px!important;max-height:44px!important}
 }
+
+/* ==========================================================
+   FTC Product Sidebar - Sticky Scroll
+   Desktop: sidebar remains visible while scrolling
+   Mobile/Tablet: returns to normal document flow
+   ========================================================== */
+
+.product-sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+
+  position:sticky;
+  top:98px;
+  align-self:flex-start;
+
+  max-height:calc(100vh - 118px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+/* Keep the scrollbar subtle when the sidebar itself needs scrolling */
+.product-sidebar{
+  scrollbar-width:thin;
+  scrollbar-color:#b9c4cf transparent;
+}
+
+.product-sidebar::-webkit-scrollbar{
+  width:6px;
+}
+
+.product-sidebar::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.product-sidebar::-webkit-scrollbar-thumb{
+  background:#b9c4cf;
+  border-radius:999px;
+}
+
+/* Disable sticky behavior on smaller screens */
+@media (max-width:900px){
+  .product-sidebar{
+    position:static;
+    top:auto;
+    max-height:none;
+    overflow:visible;
+  }
+}
+
