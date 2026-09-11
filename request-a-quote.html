@@ -211,31 +211,53 @@ if(menuToggle&&mainNav){
     menuToggle.setAttribute('aria-expanded',open?'true':'false');
   });
 }
+// 1. 設定你的 Google Apps Script 部署網址（請填入完整網址，勿保留 ...）
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxJeqszDeQ-0lPNib-n9e5XXXx0USpTxVT5MsY2YS07s-Bv_4rw0UaPoS5PisalzGp_Wg/exec";
 
-document.getElementById('rfqForm').addEventListener('submit',function(e){
+// 2. 表單送出監聽器（直連試算表與自動寄信）
+document.getElementById('rfqForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  if(!this.reportValidity()) return;
+  if (!this.reportValidity()) return;
 
-  const v=id=>document.getElementById(id).value.trim();
-  const subject=`RFQ - ${v('product')} - ${v('company')}`;
-  const body=[
-    'Request for Quotation','',
-    `Company Name: ${v('company')}`,
-    `Contact Person: ${v('contactName')}`,
-    `E-mail: ${v('email')}`,
-    `Telephone: ${v('tel')||'-'}`,
-    `Country / Region: ${v('country')||'-'}`,'',
-    `Product: ${v('product')}`,
-    `Estimated Quantity: ${v('quantity')||'-'}`,
-    `Application: ${v('application')||'-'}`,'',
-    'Required Specification / Message:',
-    v('specification')
-  ].join('\n');
+  const submitBtn = this.querySelector('.rfq-submit');
+  const originalText = submitBtn.innerText;
+  submitBtn.disabled = true;
+  submitBtn.innerText = 'Submitting...';
 
-  window.location.href='mailto:u147929@ftc.com.tw?subject='
-    + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
+  const v = id => document.getElementById(id).value.trim();
+
+  const payload = {
+    company: v('company'),
+    contactName: v('contactName'),
+    email: v('email'),
+    tel: v('tel'),
+    country: v('country'),
+    product: v('product'),
+    quantity: v('quantity'),
+    application: v('application'),
+    specification: v('specification')
+  };
+
+  fetch(GAS_API_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(() => {
+    alert('Thank you for your inquiry. We will contact you soon!');
+    document.getElementById('rfqForm').reset();
+  })
+  .catch(err => {
+    console.error('Submission error:', err);
+    alert('Submission failed. Please contact us directly at u133874@ftc.com.tw');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.innerText = originalText;
+  });
 });
+
 </script>
 </body>
 </html>
