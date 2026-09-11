@@ -75,7 +75,7 @@
 <div class="site-container rfq-layout">
   <section class="rfq-panel">
     <h2>Product Inquiry</h2>
-    <p class="rfq-intro">Fields marked with <strong>*</strong> are required. Submitting this form opens your default e-mail application with the inquiry details prepared for sending.</p>
+    <p class="rfq-intro">Fields marked with <strong>*</strong> are required. Our Composite Materials team will review your inquiry and follow up promptly.</p>
 
     <form id="rfqForm">
       <div class="rfq-grid">
@@ -129,13 +129,13 @@
         <div class="rfq-field full">
           <label for="specification">Required Specification / Message <span class="required">*</span></label>
           <textarea id="specification" required placeholder="Please provide product number, fiber type, weave/orientation, weight, width, resin content, or other technical requirements."></textarea>
-          <div class="rfq-help">For drawings or technical attachments, attach them in your e-mail after the message opens.</div>
+          <div class="rfq-help">For drawings or technical attachments, please mention them here and we will request them securely via e-mail.</div>
         </div>
       </div>
 
       <div class="rfq-actions">
-        <button class="rfq-submit" type="submit">Prepare Inquiry E-mail</button>
-        <span class="rfq-status">Recipient: u133874@ftc.com.tw</span>
+        <button class="rfq-submit" type="submit">Submit Inquiry</button>
+        <span class="rfq-status">Recipient: u147929@ftc.com.tw</span>
       </div>
     </form>
   </section>
@@ -145,7 +145,7 @@
       <h3>Direct Contact</h3>
       <p><strong>Alston K.H. Chen</strong><br>
       Tel: <a href="tel:+88655577296">886-5-5577296</a><br>
-      E-mail: <a href="mailto:u133874@ftc.com.tw">u133874@ftc.com.tw</a></p>
+      E-mail: <a href="mailto:u147929@ftc.com.tw">u147929@ftc.com.tw</a></p>
     </div>
 
     <div class="rfq-side-list">
@@ -171,7 +171,7 @@
       <div class="footer-contact">
         <span>No.317, Shulin Rd., Douliu City, Yunlin County 640, Taiwan</span>
         <a href="tel:+88655577296">+886-5-557-7296</a>
-        <a href="mailto:u133874@ftc.com.tw">u133874@ftc.com.tw</a>
+        <a href="mailto:u147929@ftc.com.tw">u147929@ftc.com.tw</a>
         <a href="https://www.ftc.com.tw/" target="_blank" rel="noopener">www.ftc.com.tw</a>
       </div>
     </div>
@@ -211,7 +211,7 @@ if(menuToggle&&mainNav){
     menuToggle.setAttribute('aria-expanded',open?'true':'false');
   });
 }
-// 1. 設定你的 Google Apps Script 部署網址（請填入完整網址，勿保留 ...）
+// 1. 設定你的 Google Apps Script 部署網址
 const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxJeqszDeQ-0lPNib-n9e5XXXx0USpTxVT5MsY2YS07s-Bv_4rw0UaPoS5PisalzGp_Wg/exec";
 
 // 2. 表單送出監聽器（直連試算表與自動寄信）
@@ -250,14 +250,13 @@ document.getElementById('rfqForm').addEventListener('submit', function(e) {
   })
   .catch(err => {
     console.error('Submission error:', err);
-    alert('Submission failed. Please contact us directly at u133874@ftc.com.tw');
+    alert('Submission failed. Please contact us directly at u147929@ftc.com.tw');
   })
   .finally(() => {
     submitBtn.disabled = false;
     submitBtn.innerText = originalText;
   });
 });
-
 </script>
 </body>
 </html>
