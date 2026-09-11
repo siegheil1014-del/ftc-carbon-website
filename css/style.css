@@ -7,7 +7,7 @@
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button{font:inherit}.site-container{width:min(1180px,calc(100% - 40px));margin:auto}
 
 /* Shared Header */
-.site-header{height:78px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9999}
+.site-header{height:88px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9999}
 .header-inner{height:100%;display:flex;align-items:center;gap:30px}.brand{display:flex;align-items:center;flex-shrink:0}.brand img{width:360px;height:auto}
 .main-nav{margin-left:auto;display:flex;align-items:center;gap:28px}.main-nav>a:not(.quote-btn){position:relative;height:78px;display:flex;align-items:center;font-size:15px;font-weight:700}
 .main-nav>a:not(.quote-btn)::after{content:"";position:absolute;left:50%;right:50%;bottom:16px;height:3px;background:var(--red);transition:.2s}
