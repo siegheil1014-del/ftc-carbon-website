@@ -236,3 +236,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button{fon
     width:240px;
   }
 }
+
+/* 修復 CSS Grid 被內部表格撐破版面的問題 */
+.product-layout > div {
+  min-width: 0;
+}
