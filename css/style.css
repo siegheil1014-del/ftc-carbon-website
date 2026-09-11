@@ -69,8 +69,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}button{fon
 .site-header .brand img {
   width: auto !important;
   height: auto !important;
-  max-width: 360px !important;
-  max-height: 66px !important;
+  max-width: 420px !important;
+  max-height: 76px !important;
   object-fit: contain;
 }
 
